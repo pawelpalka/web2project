@@ -2504,7 +2504,7 @@ function projects_list_data($user_id = false) {
 		$q->addWhere('pr.project_owner = ' . (int)$owner);
 	}
 	if (mb_trim($search_text)) {
-		$q->addWhere('pr.project_name LIKE \'%' . $search_text . '%\' OR pr.project_description LIKE \'%' . $search_text . '%\'');
+		$q->addWhere('(pr.project_name LIKE \'%' . $search_text . '%\' OR pr.project_description LIKE \'%' . $search_text . '%\')');
 	}
 	// Show Projects where the Project Owner is in the given department
 	if ($addPwOiD && !empty($owner_ids)) {
